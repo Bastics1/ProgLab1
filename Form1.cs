@@ -17,25 +17,29 @@ namespace Prog_Lab_1
                 double EdgeLength2 = Convert.ToDouble(edgeLengthTB2.Text);
                 double CylinderLength = Convert.ToDouble(cylinderLengthTB.Text);
                 double CylinderRadius = Convert.ToDouble(cylinderRadiusTB.Text);
-
-                if (CylinderRadius > EdgeLength1 / 2 || CylinderRadius > EdgeLength2 / 2 || CylinderLength > BarLength)
+                if (BarLength != 0 && EdgeLength1 != 0 && EdgeLength2 != 0 && CylinderLength != 0 && CylinderRadius != 0)
                 {
-                    MessageBox.Show("Введены некорректные значения для цилиндра.");
-                    
+                    if (CylinderRadius <= EdgeLength1 / 2 && CylinderRadius <= EdgeLength2 / 2 && CylinderLength <= BarLength)
+                    {
+                        double pi = Math.PI;
+                        double VBar = Math.Round(BarLength * EdgeLength1 * EdgeLength2, 3);
+                        double VCylinder = Math.Round(pi * Math.Pow(CylinderRadius,2) * CylinderLength, 3);
+                        double LostPercent = Math.Round(100 - ((VCylinder * 100) / VBar), 3);
+                        percentTB.Text = Convert.ToString(LostPercent);
+                        vBarTB.Text = Convert.ToString(VBar);
+                        vCylinderTB.Text = Convert.ToString(VCylinder);
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Введены некорректные значения для цилиндра.");
+                    }
                 } else
                 {
-                    double pi = Math.PI;
-                    double VBar = Math.Round(BarLength * EdgeLength1 * EdgeLength2, 3);
-                    double VCylinder = Math.Round(2 * pi * CylinderLength * CylinderRadius, 3);
-                    double LostPercent = Math.Round(100 - ((VCylinder * 100) / VBar), 3);
-                    percentTB.Text = Convert.ToString(LostPercent);
-                    vBarTB.Text = Convert.ToString(VBar);
-                    vCylinderTB.Text = Convert.ToString(VCylinder);
-
+                    MessageBox.Show("Введены некорректные значения. Уберите нули");
                 }
-                
             } catch (FormatException) {
-                MessageBox.Show("Ошибка форматирования. Введите корректные значения.");
+                MessageBox.Show("Введите корректные значения.");
             }
            
         }
@@ -63,6 +67,13 @@ namespace Prog_Lab_1
             if (!Char.IsDigit(number) && number != 8 && number != 44)
             {
                 e.Handled = true;
+            }
+            if (barLengthTB.Text.Length == 0)
+            {
+                if (number == ',')
+                {
+                    e.Handled = true;
+                }
             }
 
         }

@@ -142,7 +142,7 @@
             this.calculateButton.Name = "calculateButton";
             this.calculateButton.Size = new System.Drawing.Size(317, 44);
             this.calculateButton.TabIndex = 10;
-            this.calculateButton.Text = "Посчитать";
+            this.calculateButton.Text = "Рассчитать";
             this.calculateButton.UseVisualStyleBackColor = false;
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
@@ -211,7 +211,7 @@
             // 
             // vCylinderTB
             // 
-            this.vCylinderTB.Location = new System.Drawing.Point(168, 305);
+            this.vCylinderTB.Location = new System.Drawing.Point(168, 251);
             this.vCylinderTB.Name = "vCylinderTB";
             this.vCylinderTB.ReadOnly = true;
             this.vCylinderTB.Size = new System.Drawing.Size(146, 23);
@@ -220,7 +220,7 @@
             // 
             // vBarTB
             // 
-            this.vBarTB.Location = new System.Drawing.Point(168, 255);
+            this.vBarTB.Location = new System.Drawing.Point(168, 301);
             this.vBarTB.Name = "vBarTB";
             this.vBarTB.ReadOnly = true;
             this.vBarTB.Size = new System.Drawing.Size(146, 23);
