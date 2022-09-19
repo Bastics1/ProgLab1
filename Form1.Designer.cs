@@ -216,7 +216,7 @@
             this.vCylinderTB.ReadOnly = true;
             this.vCylinderTB.Size = new System.Drawing.Size(146, 23);
             this.vCylinderTB.TabIndex = 18;
-            this.vCylinderTB.TextChanged += new System.EventHandler(this.vCylinderTB_TextChanged);
+            
             // 
             // vBarTB
             // 

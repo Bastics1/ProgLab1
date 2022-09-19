@@ -56,11 +56,6 @@ namespace Prog_Lab_1
             vCylinderTB.Clear();
         }
 
-        private void vCylinderTB_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void barLengthTB_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
@@ -68,15 +63,14 @@ namespace Prog_Lab_1
             {
                 e.Handled = true;
             }
-            if (barLengthTB.Text.Length == 0)
+
+            if (e.KeyChar == ',')
             {
-                if (number == ',')
+                    if (((sender as TextBox).Text.IndexOf(',') != -1) || (sender as TextBox).Text.Length == 0)
                 {
                     e.Handled = true;
                 }
             }
-
         }
-
     }
 }
